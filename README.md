@@ -22,6 +22,7 @@ São SVGs vetoriais: podem ser redimensionados para impressão sem perder defini
    WHATSAPP_NUMBER=5511953687653
    CONTACT_EMAIL=guilhermelopes_dev@hotmail.com
    INSTAGRAM_URL=https://instagram.com/seuusuario
+   GITHUB_URL=https://github.com/guilops
    SERVICE_AREA=Atendimento em sua região
    BUSINESS_NAME=Gcoder
    BUSINESS_TAGLINE=TECNOLOGIA SEM COMPLICAÇÃO

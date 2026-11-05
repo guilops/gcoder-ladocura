@@ -420,6 +420,23 @@ h1 em, h2 em { color: var(--green); }
 .admin-link { color: #c0c9d5; }
 .logo-download { display: flex; flex-wrap: wrap; gap: 8px 14px; color: #9ca8b7; font-size: 9px; }
 .logo-download a { color: var(--green); }
+.contact-section { position: relative; overflow: hidden; border-top: 1px solid #ffffff12; border-bottom: 1px solid #ffffff12; background: radial-gradient(ellipse at 85% 50%, #63f4c610, transparent 38%), #0b1016; }
+.contact-section .section-heading { align-items: end; margin-bottom: 30px; }
+.contact-section .section-heading h2 { font-size: clamp(42px, 5vw, 58px); }
+.contact-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.contact-link { min-height: 165px; display: grid; grid-template-columns: 1fr auto; align-content: space-between; gap: 14px; padding: 18px; border: 1px solid #26313e; border-radius: 7px; background: linear-gradient(145deg, #121a24, #0d131b); transition: transform .2s, border-color .2s, background .2s; }
+.contact-link:hover { transform: translateY(-4px); border-color: #63f4c67a; background: linear-gradient(145deg, #15231f, #0d131b); }
+.contact-link[hidden] { display: none; }
+.contact-link-icon { width: 35px; height: 35px; display: grid; place-items: center; border: 1px solid #63f4c64a; border-radius: 7px; color: var(--green); font-size: 17px; }
+.contact-link > span:nth-child(2) { grid-column: 1 / -1; display: grid; gap: 5px; }
+.contact-link small { color: #8491a1; font-size: 8px; font-weight: 700; letter-spacing: 1.2px; }
+.contact-link strong { color: #f0f3f8; font: 700 17px var(--display); }
+.contact-link > span:nth-child(2) > span { color: #a4adbb; font-size: 10px; }
+.contact-link-arrow { grid-column: 2; grid-row: 1; align-self: start; color: #80a9ff; font-size: 15px; }
+.contact-note { margin: 14px 0 0; color: #758293; font-size: 9px; }
+.booking-contact-hint { margin: 24px 0 0; color: #9ba5b4; font-size: 10px; line-height: 1.7; }
+.booking-contact-hint a { color: var(--green); font-weight: 700; }
+.booking-contact-hint a span { color: #80a9ff; }
 .admin-overlay { background: #080b10; }
 .admin-topbar { border-bottom-color: #ffffff18; }
 .admin-close { color: #c0c9d5; }
@@ -452,6 +469,7 @@ h1 em, h2 em { color: var(--green); }
 .menu-toggle span { background: #fff; }
 @media (max-width: 900px) {
   .service-card > img { height: 145px; }
+  .contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
   .brand-logo { width: 138px; }
@@ -465,4 +483,10 @@ h1 em, h2 em { color: var(--green); }
   .footer-main { grid-template-columns: 1fr; }
   .footer-social { flex-wrap: wrap; justify-content: flex-start; }
   .logo-download { grid-column: 1 / -1; }
+  .contact-section .section-heading { margin-bottom: 23px; }
+  .contact-links { gap: 9px; }
+  .contact-link { min-height: 142px; gap: 9px; padding: 13px 11px; }
+  .contact-link strong { font-size: 14px; }
+  .contact-link > span:nth-child(2) > span { font-size: 9px; }
+  .contact-note { font-size: 8px; }
 }

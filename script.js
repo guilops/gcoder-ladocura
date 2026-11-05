@@ -86,6 +86,7 @@ function setupContactLinks() {
   const phone = (config.whatsappNumber || "").replace(/\D/g, "");
   const contactEmail = (config.contactEmail || "").trim();
   const instagramUrl = (config.instagramUrl || "").trim();
+  const githubUrl = (config.githubUrl || "").trim();
   for (const link of document.querySelectorAll("[data-whatsapp]")) {
     if (phone) {
       link.href = `https://wa.me/${phone}`;
@@ -109,6 +110,16 @@ function setupContactLinks() {
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.setAttribute("aria-label", "Acompanhe a Gcoder no Instagram");
+    } else {
+      link.hidden = true;
+    }
+  }
+  for (const link of document.querySelectorAll("[data-github]")) {
+    if (githubUrl) {
+      link.href = githubUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.setAttribute("aria-label", "Veja os projetos da Gcoder no GitHub");
     } else {
       link.hidden = true;
     }

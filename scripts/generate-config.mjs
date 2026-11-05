@@ -28,6 +28,7 @@ const config = {
   whatsappNumber: env.WHATSAPP_NUMBER || "5511953687653",
   contactEmail: env.CONTACT_EMAIL || "guilhermelopes_dev@hotmail.com",
   instagramUrl: env.INSTAGRAM_URL || "",
+  githubUrl: env.GITHUB_URL || "https://github.com/guilops",
   serviceArea: env.SERVICE_AREA || "",
   businessName: env.BUSINESS_NAME || "Gcoder",
   businessTagline: env.BUSINESS_TAGLINE || "TECNOLOGIA SEM COMPLICAÇÃO",
