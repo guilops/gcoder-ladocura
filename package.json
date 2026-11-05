@@ -1,0 +1,8 @@
+{
+  "name": "gcoder-site",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-config.mjs",
+    "build:pages": "npm run build && node scripts/prepare-pages.mjs"
+  }
+}
