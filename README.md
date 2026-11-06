@@ -83,6 +83,6 @@ O painel privado em `/gestao/` preserva o calendário interno: login, consulta d
 
 ## Teste e publicação
 
-Rode `npm run build`, abra o `index.html` por um servidor estático local ou publique os arquivos em uma hospedagem estática com HTTPS. Antes de divulgar o QR code do cartão, confira os links de contato, teste o envio do formulário e confirme que `/gestao/` funciona. Um domínio publicado com HTTPS ajuda os leitores de QR code a abrirem o site com segurança.
+Rode `npm run build`, abra o `index.html` por um servidor estático local ou publique os arquivos em uma hospedagem estática com HTTPS. Antes de divulgar o QR code do cartão, confira os links de contato, teste o envio do formulário e confirme que `/gestao/` funciona. O aviso de cookies informa que o painel usa armazenamento local para manter a sessão; ele não representa consentimento para publicidade ou analytics. Um domínio publicado com HTTPS ajuda os leitores de QR code a abrirem o site com segurança.
 
 As fotos externas são ilustrativas; substitua-as por imagens próprias quando desejar. O QR code deve apontar para a URL final do site publicado.

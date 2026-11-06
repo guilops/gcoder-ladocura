@@ -108,9 +108,40 @@
   </main>
 
   <footer class="site-footer">
-    <div class="section-wrap footer-main"><a class="wordmark" href="#" aria-label="Gcoder, voltar ao início"><img class="brand-logo" src="assets/logos/gcoder-logo-white.svg" alt="Gcoder"></a><p>Soluções digitais e suporte para seus equipamentos.</p><div class="footer-social"><a data-whatsapp href="#contato">WhatsApp ↗</a><a data-instagram href="#contato">Instagram ↗</a><a data-github href="#contato">GitHub ↗</a><a data-email href="#contato">E-mail ↗</a></div><div class="logo-download"><a href="assets/logos/gcoder-logo-black.svg" download>Baixar logo preta · SVG</a><a href="assets/logos/gcoder-logo-white.svg" download>Baixar logo branca · SVG</a></div></div>
-    <div class="section-wrap footer-bottom"><span>© <span id="year"></span> <span data-brand-name>Gcoder</span></span><a class="admin-link" href="gestao/">Gestão da agenda</a></div>
+    <div class="section-wrap footer-main">
+      <div class="footer-brand">
+        <a class="wordmark" href="#" aria-label="Gcoder, voltar ao início"><img class="brand-logo" src="assets/logos/gcoder-logo-white.svg" alt="Gcoder"></a>
+        <p>Soluções digitais e suporte para seus equipamentos. Tecnologia sem complicação para tirar suas ideias do papel.</p>
+        <div class="footer-social"><a data-whatsapp href="#contato">WhatsApp ↗</a><a data-instagram href="#contato">Instagram ↗</a><a data-github href="#contato">GitHub ↗</a><a data-email href="#contato">E-mail ↗</a></div>
+      </div>
+      <nav class="footer-column" aria-label="Contato">
+        <h2>Contato</h2>
+        <a data-email href="#contato">guilhermelopes_dev@hotmail.com</a>
+        <a data-whatsapp href="#contato">WhatsApp</a>
+        <a href="#solicitacao">Enviar uma mensagem</a>
+      </nav>
+      <nav class="footer-column" aria-label="Links">
+        <h2>Links</h2>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="gestao/">Gestão da agenda</a>
+        <button id="cookie-notice-open" type="button">Cookies e privacidade</button>
+      </nav>
+      <nav class="footer-column" aria-label="Serviços da Gcoder">
+        <h2>Serviços</h2>
+        <a href="#servicos">Criação de sites</a>
+        <a href="#servicos">Formatação de computadores</a>
+        <a href="#servicos">Limpeza e remoção de vírus</a>
+        <a href="#solicitacao">Manutenção e otimização</a>
+      </nav>
+    </div>
+    <div class="section-wrap footer-bottom"><span>© <span id="year"></span> <span data-brand-name>Gcoder</span>. Todos os direitos reservados.</span></div>
   </footer>
+
+  <aside class="cookie-notice" id="cookie-notice" hidden aria-label="Aviso sobre cookies e armazenamento" aria-live="polite">
+    <div><strong>Cookies e armazenamento</strong><p>O painel de gestão usa o armazenamento do navegador para manter sua sessão. Não usamos ferramentas de publicidade ou analytics.</p></div>
+    <button class="cookie-notice-close" id="cookie-notice-close" type="button">Entendi</button>
+  </aside>
 
   <section class="admin-overlay" id="admin-overlay" hidden aria-label="Painel administrativo">
     <div class="admin-panel">

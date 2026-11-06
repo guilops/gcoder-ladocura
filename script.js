@@ -196,6 +196,39 @@ function setupContactForm() {
   });
 }
 
+function setupCookieNotice() {
+  const notice = document.querySelector("#cookie-notice");
+  const closeButton = document.querySelector("#cookie-notice-close");
+  const reopenButton = document.querySelector("#cookie-notice-open");
+  if (!notice || !closeButton) return;
+
+  const storageKey = "gcoder-cookie-notice-dismissed";
+  try {
+    notice.hidden = window.localStorage.getItem(storageKey) === "true";
+  } catch (error) {
+    console.warn("Could not read the cookie notice preference:", error);
+    notice.hidden = false;
+  }
+
+  closeButton.addEventListener("click", () => {
+    notice.hidden = true;
+    try {
+      window.localStorage.setItem(storageKey, "true");
+    } catch (error) {
+      console.warn("Could not save the cookie notice preference:", error);
+    }
+  });
+  reopenButton?.addEventListener("click", () => {
+    notice.hidden = false;
+    try {
+      window.localStorage.removeItem(storageKey);
+    } catch (error) {
+      console.warn("Could not reset the cookie notice preference:", error);
+    }
+    closeButton.focus();
+  });
+}
+
 function formatDuration(minutes) {
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
@@ -838,6 +871,7 @@ document.querySelector("#main-nav")?.addEventListener("click", (event) => {
   }
 });
 setupContactForm();
+setupCookieNotice();
 loginForm.addEventListener("submit", handleLogin);
 document.querySelector("#signout-button").addEventListener("click", signOut);
 document.querySelector("#previous-month").addEventListener("click", () => refreshSelectedMonth(-1));
