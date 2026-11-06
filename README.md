@@ -40,7 +40,7 @@ São SVGs vetoriais: podem ser redimensionados para impressão sem perder defini
 
 ## Supabase e agenda
 
-O formulário público não reserva datas nem promete prazos: ele prepara um e-mail para a Gcoder com o assunto, os dados de contato e a descrição do pedido. A pessoa revisa e envia a mensagem pelo aplicativo de e-mail do próprio dispositivo. Solicitações de criação de site, dúvidas e pedidos de conversa usam o mesmo formulário. Para formatação ou manutenção de computador, o site informa que entrega e retirada no endereço combinado são responsabilidade do cliente.
+O formulário público envia a mensagem para o e-mail configurado em `ADMIN_EMAIL` usando uma Supabase Edge Function e o Resend. Solicitações de criação de site, dúvidas e pedidos de conversa usam o mesmo formulário. Para formatação ou manutenção de computador, o site informa que entrega e retirada no endereço combinado são responsabilidade do cliente.
 
 O painel privado em `/gestao/` preserva o calendário interno: login, consulta dos registros antigos, duração dos serviços, exportação `.ics` e bloqueio de dias ou horários. Os novos pedidos enviados pelo formulário de contato **não** criam agendamentos nem aparecem automaticamente nesse calendário. O tempo e a eventual marcação são combinados depois de avaliar o serviço.
 
@@ -59,23 +59,30 @@ O painel privado em `/gestao/` preserva o calendário interno: login, consulta d
    ```
 
    Não habilite cadastro público. O painel só abre para usuários explicitamente autorizados na tabela `admins`.
-4. Configure os segredos de e-mail no projeto Gcoder, se quiser receber notificações. Use um domínio de remetente verificado no Resend:
+4. Para enviar as mensagens do formulário, crie uma conta no Resend, verifique um domínio de remetente e configure os segredos no projeto Gcoder:
 
    ```powershell
-   npx supabase secrets set RESEND_API_KEY="SUA_CHAVE_RESEND" ADMIN_EMAIL="EMAIL_DA_GCODER" EMAIL_FROM="Gcoder <agenda@SEU_DOMINIO_VERIFICADO>" BUSINESS_NAME="Gcoder" --project-ref REF_DO_PROJETO_GCODER
+   npx supabase secrets set RESEND_API_KEY="SUA_CHAVE_RESEND" ADMIN_EMAIL="guilhermelopes_dev@hotmail.com" EMAIL_FROM="Gcoder <contato@SEU_DOMINIO_VERIFICADO>" BUSINESS_NAME="Gcoder" --project-ref REF_DO_PROJETO_GCODER
    ```
 
-5. Se ainda for usar os endpoints de disponibilidade da agenda, publique as funções no projeto Gcoder:
+   Adicione no Resend os registros DNS solicitados para verificar `gcoder.com.br`; o endereço em `EMAIL_FROM` é o remetente e não precisa ser uma caixa postal. Nunca coloque a chave do Resend no site, GitHub Pages ou em `config.js`.
+5. Publique a função do formulário:
+
+   ```powershell
+   npx supabase functions deploy contact-message --no-verify-jwt
+   ```
+
+6. Se ainda for usar os endpoints de disponibilidade da agenda, publique as funções no projeto Gcoder:
 
    ```powershell
    npx supabase functions deploy booking-slots --no-verify-jwt
    npx supabase functions deploy create-booking --no-verify-jwt
    ```
 
-   As Edge Functions usam `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` como segredos do ambiente Supabase. A chave privada não é enviada ao navegador. A função de consulta retorna disponibilidade sem divulgar dados pessoais dos clientes. Elas não são necessárias para o formulário atual, que envia a mensagem pelo aplicativo de e-mail do visitante.
+   As funções de agenda usam `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` no ambiente do Supabase. A chave privada não é enviada ao navegador. A função de consulta retorna disponibilidade sem divulgar dados pessoais dos clientes.
 
 ## Teste e publicação
 
-Rode `npm run build`, abra o `index.html` por um servidor estático local ou publique os arquivos em uma hospedagem estática com HTTPS. Antes de divulgar o QR code do cartão, confira os links de contato, teste se o formulário abre o aplicativo de e-mail com todos os dados e confirme que `/gestao/` funciona. O formulário exige que a pessoa envie a mensagem depois de revisar o rascunho. Um domínio publicado com HTTPS ajuda os leitores de QR code a abrirem o site com segurança.
+Rode `npm run build`, abra o `index.html` por um servidor estático local ou publique os arquivos em uma hospedagem estática com HTTPS. Antes de divulgar o QR code do cartão, confira os links de contato, teste o envio do formulário e confirme que `/gestao/` funciona. Um domínio publicado com HTTPS ajuda os leitores de QR code a abrirem o site com segurança.
 
 As fotos externas são ilustrativas; substitua-as por imagens próprias quando desejar. O QR code deve apontar para a URL final do site publicado.

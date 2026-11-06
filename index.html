@@ -91,6 +91,7 @@
       <div class="booking-intro"><p class="eyebrow"><span></span> FALE COM A GCODER</p><h2>Como posso<br><em>te ajudar?</em></h2><p>Peça um orçamento, tire uma dúvida ou combine uma conversa. Escolha um assunto e conte os detalhes; vou responder para combinar os próximos passos.</p><div class="booking-assurance"><span aria-hidden="true">✓</span><span><strong>Uma solicitação por vez</strong><small>Orçamentos, dúvidas, reuniões e outros assuntos.</small></span></div><div class="booking-assurance delivery-note"><span aria-hidden="true">!</span><span><strong>Sobre computadores</strong><small>Para formatação e manutenção, a entrega e a retirada do equipamento no endereço combinado são responsabilidade do cliente.</small></span></div><p class="booking-contact-hint">Quer só acompanhar meus projetos? <a href="#contato">Veja meus links de contato <span>↗</span></a></p></div>
       <form class="booking-form" id="contact-form">
         <div class="form-heading"><span>ORÇAMENTO, DÚVIDA OU CONVERSA</span></div>
+        <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
         <label>Seu nome<input name="name" type="text" autocomplete="name" minlength="2" maxlength="100" required placeholder="Como podemos chamar você?"></label>
         <div class="form-row"><label>Seu e-mail<input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="voce@email.com"></label><label>WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="30" placeholder="(11) 99999-9999"></label></div>
         <label>Assunto
@@ -100,8 +101,8 @@
         </label>
         <label>Como podemos ajudar?<textarea name="details" maxlength="2000" required placeholder="Conte o que você precisa, com os detalhes que considerar importantes."></textarea></label>
         <p class="form-feedback" id="contact-feedback" role="status" aria-live="polite"></p>
-        <button class="button button-dark form-submit" type="submit">Preparar e-mail <span aria-hidden="true">↗</span></button>
-        <p class="form-legal">Ao enviar, seu aplicativo de e-mail será aberto com a mensagem pronta para você revisar e enviar.</p>
+        <button class="button button-dark form-submit" type="submit">Enviar mensagem <span aria-hidden="true">↗</span></button>
+        <p class="form-legal">Sua mensagem será enviada diretamente para a equipe da Gcoder.</p>
       </form>
     </section>
   </main>

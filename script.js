@@ -140,27 +140,59 @@ function setupContactLinks() {
 
 function setupContactForm() {
   if (!contactForm) return;
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const contactEmail = (config.contactEmail || "").trim();
-    if (!contactEmail) {
-      setFeedback(contactFeedback, "O e-mail de contato ainda não foi configurado. Fale com a Gcoder pelo WhatsApp ou Instagram.");
+    const data = Object.fromEntries(new FormData(contactForm).entries());
+    if (!db) {
+      const contactEmail = (config.contactEmail || "").trim();
+      if (!contactEmail) {
+        setFeedback(contactFeedback, "O formulário ainda não está configurado. Fale com a Gcoder pelo WhatsApp ou Instagram.");
+        return;
+      }
+
+      const emailBody = [
+        `Nome: ${data.name}`,
+        `E-mail: ${data.email}`,
+        `WhatsApp: ${data.phone || "Não informado"}`,
+        `Assunto: ${data.subject}`,
+        "",
+        "Como podemos ajudar?",
+        data.details,
+      ].join("\n");
+      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(`[Gcoder] ${data.subject}`)}&body=${encodeURIComponent(emailBody)}`;
+      setFeedback(contactFeedback, "Seu aplicativo de e-mail deve abrir com a mensagem pronta para revisão e envio.", true);
       return;
     }
 
-    const data = Object.fromEntries(new FormData(contactForm).entries());
-    const body = [
-      `Nome: ${data.name}`,
-      `E-mail: ${data.email}`,
-      `WhatsApp: ${data.phone || "Não informado"}`,
-      `Assunto: ${data.subject}`,
-      "",
-      "Como podemos ajudar?",
-      data.details,
-    ].join("\n");
-    const mailto = `mailto:${contactEmail}?subject=${encodeURIComponent(`[Gcoder] ${data.subject}`)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setFeedback(contactFeedback, "Seu aplicativo de e-mail deve abrir com a mensagem pronta para revisão e envio.", true);
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.firstChild.textContent = "Enviando... ";
+    setFeedback(contactFeedback, "");
+    try {
+      const { error } = await db.functions.invoke("contact-message", {
+        body: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          subject: data.subject,
+          details: data.details,
+          website: data.website,
+        },
+      });
+      if (error) {
+        console.error("Could not send the contact message:", error.message);
+        setFeedback(contactFeedback, "Não foi possível enviar sua mensagem agora. Tente novamente ou fale com a Gcoder pelo WhatsApp.");
+        return;
+      }
+      contactForm.reset();
+      setFeedback(contactFeedback, "Mensagem enviada! Em breve a Gcoder entrará em contato.", true);
+    } catch (error) {
+      console.error("Contact message request failed:", error);
+      setFeedback(contactFeedback, "Não foi possível enviar sua mensagem agora. Tente novamente ou fale com a Gcoder pelo WhatsApp.");
+    } finally {
+      submitButton.disabled = false;
+      submitButton.firstChild.textContent = "Enviar mensagem ";
+    }
   });
 }
 
