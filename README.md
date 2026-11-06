@@ -86,3 +86,7 @@ O painel privado em `/gestao/` preserva o calendário interno: login, consulta d
 Rode `npm run build`, abra o `index.html` por um servidor estático local ou publique os arquivos em uma hospedagem estática com HTTPS. Antes de divulgar o QR code do cartão, confira os links de contato, teste o envio do formulário e confirme que `/gestao/` funciona. O aviso de cookies informa que o painel usa armazenamento local para manter a sessão; ele não representa consentimento para publicidade ou analytics. Um domínio publicado com HTTPS ajuda os leitores de QR code a abrirem o site com segurança.
 
 As fotos externas são ilustrativas; substitua-as por imagens próprias quando desejar. O QR code deve apontar para a URL final do site publicado.
+
+## Cursos GCoder
+
+A seção de cursos apresenta **Missão Algoritmo: Lógica de Programação Gamificada com VisualG**, um material de 50 páginas para iniciantes. O botão abre o checkout configurado em `HOTMART_LOGIC_URL` (ou em `config.js`). O PDF de entrega está em `.private-course/GCoder-Missao-Algoritmo-VisualG.pdf`; faça upload desse arquivo no conteúdo do produto Hotmart. A apostila e seu gerador ficam ignorados pelo Git e não entram no site público. Para regenerar localmente, rode `node .private-course/build.mjs`.

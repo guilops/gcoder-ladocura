@@ -30,6 +30,7 @@ const config = {
   instagramUrl: env.INSTAGRAM_URL || "",
   githubUrl: env.GITHUB_URL || "https://github.com/guilops",
   serviceArea: env.SERVICE_AREA || "",
+  hotmartLogicUrl: env.HOTMART_LOGIC_URL || "https://go.hotmart.com/J79485536F",
   businessName: env.BUSINESS_NAME || "Gcoder",
   businessTagline: env.BUSINESS_TAGLINE || "TECNOLOGIA SEM COMPLICAÇÃO",
 };

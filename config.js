@@ -6,6 +6,7 @@ window.GCODER_CONFIG = {
   "instagramUrl": "",
   "githubUrl": "https://github.com/guilops",
   "serviceArea": "",
+  "hotmartLogicUrl": "https://go.hotmart.com/J79485536F",
   "businessName": "Gcoder",
   "businessTagline": "TECNOLOGIA SEM COMPLICAÇÃO"
 };

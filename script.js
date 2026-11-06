@@ -138,6 +138,34 @@ function setupContactLinks() {
   }
 }
 
+function setupCourseCheckout() {
+  const link = document.querySelector("#logic-course-buy");
+  if (!link) return;
+  const configuredUrl = typeof config.hotmartLogicUrl === "string"
+    ? config.hotmartLogicUrl.trim()
+    : "";
+  let checkoutUrl;
+  try {
+    const candidate = new URL(configuredUrl);
+    if (
+      candidate.protocol === "https:" &&
+      (candidate.hostname === "hotmart.com" || candidate.hostname.endsWith(".hotmart.com"))
+    ) checkoutUrl = candidate.href;
+  } catch {
+    checkoutUrl = null;
+  }
+  if (!checkoutUrl) {
+    link.addEventListener("click", (event) => event.preventDefault());
+    return;
+  }
+  link.href = checkoutUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.removeAttribute("aria-disabled");
+  link.removeAttribute("tabindex");
+  link.innerHTML = 'Comprar na Hotmart <span aria-hidden="true">↗</span>';
+}
+
 function setupContactForm() {
   if (!contactForm) return;
   contactForm.addEventListener("submit", async (event) => {
@@ -903,6 +931,7 @@ document.querySelector("#save-durations-button")?.addEventListener("click", (eve
   void saveServiceDurations(event.currentTarget);
 });
 setupContactLinks();
+setupCourseCheckout();
 setupHeroCarousel();
 window.addEventListener("hashchange", routeToAdmin);
 routeToAdmin();

@@ -5,3 +5,4 @@ node_modules/
 dist/
 supabase/.temp/
 assets/montador-montagem.png
+.private-course/
