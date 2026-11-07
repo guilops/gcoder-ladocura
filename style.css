@@ -633,3 +633,33 @@ h1 em, h2 em { color: var(--green); }
 .course-info h3 { color: var(--green-dark); }
 .course-subtitle { color: #a65d39; }
 .course-emblem { font-size: 38px; letter-spacing: -4px; }
+
+/* Cursos GCoder: download gratuito e curso prático */
+.course-info { background: #fff; }
+.course-free-action { margin: 22px 0 24px; }
+.course-free-action .button { background: #243b35; color: #fff; }
+.course-paid { margin-top: 26px; padding: 20px; border-left: 3px solid #d9955f; background: #f5f7f5; }
+.course-paid > p:not(.course-paid-label) { max-width: 540px; margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.course-paid-label { margin: 0 0 8px; color: #a65d39; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; }
+.button-outline { border: 1px solid #243b35; background: transparent; color: #243b35; }
+.course-action .button-outline:hover { background: #243b35; color: #fff; }
+
+/* Cursos GCoder: download gratuito e curso prático */
+.course-info { background: #fff; }
+.course-free-action { margin: 22px 0 24px; }
+.course-free-action .button { background: #243b35; color: #fff; }
+.course-paid { margin-top: 26px; padding: 20px; border-left: 3px solid #d9955f; background: #f5f7f5; }
+.course-paid > p:not(.course-paid-label) { max-width: 540px; margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.course-paid-label { margin: 0 0 8px; color: #a65d39; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; }
+.button-outline { border: 1px solid #243b35; background: transparent; color: #243b35; }
+.course-action .button-outline:hover { background: #243b35; color: #fff; }
+
+/* Cursos GCoder: download gratuito e curso prático */
+.course-info { background: #fff; }
+.course-free-action { margin: 22px 0 24px; }
+.course-free-action .button { background: #243b35; color: #fff; }
+.course-paid { margin-top: 26px; padding: 20px; border-left: 3px solid #d9955f; background: #f5f7f5; }
+.course-paid > p:not(.course-paid-label) { max-width: 540px; margin: 0 0 15px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.course-paid-label { margin: 0 0 8px; color: #a65d39; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; }
+.button-outline { border: 1px solid #243b35; background: transparent; color: #243b35; }
+.course-action .button-outline:hover { background: #243b35; color: #fff; }

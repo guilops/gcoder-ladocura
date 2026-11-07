@@ -89,4 +89,6 @@ As fotos externas são ilustrativas; substitua-as por imagens próprias quando d
 
 ## Cursos GCoder
 
-A seção de cursos apresenta **Missão Algoritmo: Lógica de Programação Gamificada com VisualG**, um material de 50 páginas para iniciantes. O botão abre o checkout configurado em `HOTMART_LOGIC_URL` (ou em `config.js`). O PDF de entrega está em `.private-course/GCoder-Missao-Algoritmo-VisualG.pdf`; faça upload desse arquivo no conteúdo do produto Hotmart. A apostila e seu gerador ficam ignorados pelo Git e não entram no site público. Para regenerar localmente, rode `node .private-course/build.mjs`.
+A seção Cursos oferece a apostila gratuita **Missão Algoritmo**, no arquivo assets/courses/GCoder-Missao-Algoritmo-VisualG.pdf. Ela introduz lógica e programação para iniciantes, explica IDE e VisuAlg e apresenta exercícios guiados. O material é gerado por node scripts/build-course-pdf.mjs; o script npm run build:pages copia o PDF para o site publicado em dist/assets/courses/.
+
+O curso prático de lógica com VisualG continua disponível pelo checkout configurado em HOTMART_LOGIC_URL (ou em config.js). A apostila grátis é um material de apoio inicial; o curso da Hotmart oferece a trilha prática completa.
