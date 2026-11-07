@@ -138,6 +138,14 @@ function setupContactLinks() {
   }
 }
 
+function registerMonetagServiceWorker() {
+  if (!("serviceWorker" in navigator) || window.location.protocol !== "https:") return;
+
+  navigator.serviceWorker.register("/sw.js", { scope: "/" })
+    .then(() => console.info("Service worker da Monetag registrado."))
+    .catch((error) => console.error("Não foi possível registrar o service worker da Monetag.", error));
+}
+
 function setupCourseCheckout() {
   const link = document.querySelector("#logic-course-buy");
   if (!link) return;
@@ -931,6 +939,7 @@ document.querySelector("#save-durations-button")?.addEventListener("click", (eve
   void saveServiceDurations(event.currentTarget);
 });
 setupContactLinks();
+registerMonetagServiceWorker();
 setupCourseCheckout();
 setupHeroCarousel();
 window.addEventListener("hashchange", routeToAdmin);

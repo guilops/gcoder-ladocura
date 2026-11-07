@@ -663,3 +663,8 @@ h1 em, h2 em { color: var(--green); }
 .course-paid-label { margin: 0 0 8px; color: #a65d39; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; }
 .button-outline { border: 1px solid #243b35; background: transparent; color: #243b35; }
 .course-action .button-outline:hover { background: #243b35; color: #fff; }
+
+.monetag-notice { min-height: 44px; display: flex; justify-content: center; align-items: center; gap: 14px; padding: 8px 20px; border-bottom: 1px solid #ffffff12; background: #10161d; color: #b7c1d0; font-size: 11px; }
+.monetag-notice > span { color: #63f4c6; font-size: 9px; font-weight: 800; letter-spacing: 1.1px; }
+.monetag-notice p { margin: 0; }
+@media (max-width: 520px) { .monetag-notice { gap: 8px; font-size: 10px; } }
