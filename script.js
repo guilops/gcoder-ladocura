@@ -285,8 +285,6 @@ function setupHeroCarousel() {
   let currentIndex = 0;
   let timer;
   let paused = reducedMotion.matches;
-  let hovering = false;
-  let focused = false;
 
   function stopTimer() {
     window.clearInterval(timer);
@@ -295,8 +293,8 @@ function setupHeroCarousel() {
 
   function startTimer() {
     stopTimer();
-    if (paused || hovering || focused || document.hidden || heroPhotos.length < 2) return;
-    timer = window.setInterval(() => showPhoto(currentIndex + 1), 6000);
+    if (paused || document.hidden || heroPhotos.length < 2) return;
+    timer = window.setInterval(() => showPhoto(currentIndex + 1), 3000);
   }
 
   function showPhoto(index) {
@@ -348,24 +346,6 @@ function setupHeroCarousel() {
     if (event.target.closest(".hero-image-label, .photo-credit, .carousel-controls")) return;
     const bounds = carousel.getBoundingClientRect();
     showPhoto(event.clientX < bounds.left + bounds.width / 2 ? currentIndex - 1 : currentIndex + 1);
-  });
-  carousel.addEventListener("mouseenter", () => {
-    hovering = true;
-    stopTimer();
-  });
-  carousel.addEventListener("mouseleave", () => {
-    hovering = false;
-    startTimer();
-  });
-  carousel.addEventListener("focusin", () => {
-    focused = true;
-    stopTimer();
-  });
-  carousel.addEventListener("focusout", (event) => {
-    if (!carousel.contains(event.relatedTarget)) {
-      focused = false;
-      startTimer();
-    }
   });
   document.addEventListener("visibilitychange", startTimer);
   reducedMotion.addEventListener("change", (event) => {
