@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
@@ -11,13 +11,13 @@
 <body class="bakery">
   <section class="admin-overlay" id="admin-overlay" aria-label="Painel de gestão">
     <div class="admin-panel">
-      <div class="admin-topbar"><a class="bakery-brand" href="../" aria-label="La Docura, voltar à vitrine"><span class="brand-seal">La<br>Docura</span><span><strong>La Docura</strong><small>CONFEITARIA GOURMET</small></span></a><a class="admin-close" href="../" aria-label="Voltar ao site">×</a></div>
+      <div class="admin-topbar"><a class="bakery-brand" href="../" aria-label="La Docura, voltar à vitrine"><img class="bakery-logo" src="../assets/bakery/la-docura-logo.png" alt="La Docura Confeitaria Gourmet"><span><strong>La Docura</strong><small>CONFEITARIA GOURMET</small></span></a><a class="admin-close" href="../" aria-label="Voltar ao site">×</a></div>
       <section class="admin-login" id="admin-login">
         <p class="eyebrow"><span></span> ÁREA RESTRITA</p><h1>Acesse sua<br><em>agenda.</em></h1><p>Entre com a conta administrativa cadastrada para ver os pedidos.</p>
         <form id="login-form"><label>E-mail<input name="email" type="email" autocomplete="username" required placeholder="seu@email.com"></label><label>Senha<input name="password" type="password" autocomplete="current-password" required placeholder="Sua senha"></label><p class="form-feedback" id="login-feedback" role="status" aria-live="polite"></p><button class="button button-dark" type="submit">Entrar na agenda <span aria-hidden="true">↗</span></button></form>
       </section>
       <section class="dashboard" id="dashboard" hidden>
-        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> LA DOCURA CONFEITARIA</p><h1>Pedidos e encomendas.</h1><p>Acompanhe as encomendas e atualize cada etapa.</p></div><div class="dashboard-actions"><a class="button button-outline" href="../#encomenda">Ver vitrine <span aria-hidden="true">↗</span></a><button class="button button-outline" id="signout-button" type="button">Sair</button></div></div>
+        <div class="dashboard-heading"><div><p class="eyebrow"><span></span> LA DOCURA CONFEITARIA</p><h1>Pedidos e encomendas.</h1><p>Acompanhe as encomendas e atualize cada etapa.</p></div><div class="dashboard-actions"><a class="button button-outline" href="../encomenda.html#pedido">Ver encomendas <span aria-hidden="true">↗</span></a><button class="button button-outline" id="signout-button" type="button">Sair</button></div></div>
         <div class="dashboard-stats"><article><span>PEDIDOS DE HOJE</span><strong id="today-count">0</strong><small>Pedidos ativos</small></article><article><span>PEDIDOS RECEBIDOS</span><strong id="pending-count">0</strong><small>Precisam de retorno</small></article><article><span>PRÓXIMOS 7 DIAS</span><strong id="week-count">0</strong><small>Pedidos ativos</small></article></div>
         <section class="duration-settings"><div><p class="eyebrow"><span></span> PRAZO MÍNIMO PARA ENCOMENDAS</p><p>Defina com quantos dias de antecedência o cliente precisa pedir. A vitrine atualiza a primeira data disponível.</p></div><div class="duration-grid"><label>Antecedência mínima<input id="min-order-days" type="number" min="1" max="60" step="1" value="7"><small>dias corridos</small></label></div><p class="form-feedback" id="lead-time-feedback" role="status" aria-live="polite"></p><button class="button button-outline" id="save-lead-time-button" type="button">Salvar prazo mínimo</button></section>
         <div class="calendar-section">
@@ -34,5 +34,3 @@
   <script src="../script.js"></script>
 </body>
 </html>
-
-

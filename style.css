@@ -289,6 +289,57 @@ h1 em, h2 em { color: var(--green); font-family: var(--serif); font-weight: 400;
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
 
+/* La Docura: fotos reais, identidade e pedidos em página própria. */
+.bakery .bakery-hero { position: relative; display: grid; align-items: center; }
+.bakery .bakery-hero h1 { margin: 0; color: #533940; font: 500 clamp(42px, 5.3vw, 68px)/1.08 var(--serif); letter-spacing: -1.5px; }
+.bakery .bakery-brand { gap: 11px; }
+.bakery .bakery-logo { width: 54px; height: 54px; flex: 0 0 54px; border-radius: 50%; clip-path: circle(43% at 50% 50%); object-fit: cover; }
+.bakery .bakery-carousel { overflow: hidden; border-radius: 48% 48% 10px 10px; }
+.bakery .bakery-carousel > img { width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: inherit; box-shadow: 0 24px 50px #7c364018; transition: opacity .3s ease; }
+.bakery .bakery-carousel-controls { position: absolute; z-index: 4; right: 12px; bottom: 12px; display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 24px; background: #35242dc9; backdrop-filter: blur(8px); }
+.bakery .bakery-carousel-controls .carousel-arrow,
+.bakery .bakery-carousel-controls .carousel-toggle { width: 28px; height: 28px; border: 1px solid #ffffff70; background: transparent; color: white; }
+.bakery .bakery-carousel-controls .carousel-dot { border-color: white; }
+.bakery .bakery-carousel-controls .carousel-dot[aria-pressed="true"] { background: white; }
+.bakery .bakery-sweet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bakery .sweet-card > img { width: 100%; }
+.bakery .sweet-flavor-card { display: flex; align-items: flex-start; gap: 13px; min-height: 184px; padding: 17px; }
+.bakery .sweet-flavor-card .flavor-icon { display: grid; width: 35px; height: 35px; flex: 0 0 35px; place-items: center; border: 1px solid #efd2d2; border-radius: 50%; background: #fff2f1; color: #b24d69; font-size: 18px; }
+.bakery .sweet-flavor-card > div { padding: 1px 0 0; }
+.bakery .sweet-flavor-card > div > span { color: #bb7a75; font-size: 7px; font-weight: 700; letter-spacing: 1px; }
+.bakery .sweet-flavor-card h3 { margin-top: 8px; }
+.bakery .menu-order-link { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 32px; padding: 20px; border: 1px solid #f0ded8; background: #fff9f5; }
+.bakery .menu-order-link p { margin: 0; color: #846f6b; font-size: 11px; }
+.bakery .home-order-cta { display: grid; justify-items: center; padding-block: 68px 78px; text-align: center; }
+.bakery .home-order-cta .aside-flower { margin-bottom: 8px; color: #c36e84; font-size: 28px; }
+.bakery .home-order-cta .eyebrow { margin-bottom: 11px; }
+.bakery .home-order-cta h2 { margin: 0; color: #533940; font: 500 clamp(34px, 4.6vw, 52px)/1.12 var(--serif); }
+.bakery .home-order-cta h2 em { color: #b24d69; }
+.bakery .home-order-cta > p:not(.eyebrow) { max-width: 490px; margin: 16px 0 23px; color: #846f6b; font-size: 11px; line-height: 1.8; }
+.bakery .order-section h1 { margin: 0; color: #533940; font: 500 clamp(38px, 4.6vw, 56px)/1.08 var(--serif); letter-spacing: -1.5px; }
+.bakery .order-section h1 em { color: #b24d69; }
+.bakery .order-section .section-heading { margin-bottom: 34px; }
+.bakery .order-aside h2 { margin: 0 0 12px; color: #603c47; font: 500 28px/1.15 var(--serif); }
+.bakery .quantity-help { margin: -6px 0 0; color: #967b76; font-size: 9px; line-height: 1.6; }
+.bakery .quantity-select { width: 132px; min-height: 40px; padding: 7px 9px; border: 1px solid #e5cbc8; border-radius: 0; background: white; color: #513a3f; font: 10px var(--sans); }
+.bakery .order-form .product-row { display: flex; }
+.bakery .order-form .product-row > span { display: block; }
+.bakery .order-form .product-row > span strong,
+.bakery .order-form .product-row > span small { display: block; }
+.bakery .bakery-footer .bakery-logo { background: #fff9f5; }
+@media (max-width: 900px) {
+  .bakery .bakery-sweet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .bakery .bakery-carousel { height: 310px; }
+  .bakery .bakery-carousel-controls { right: 8px; bottom: 8px; gap: 5px; padding: 5px 6px; }
+  .bakery .bakery-carousel-controls .carousel-arrow,
+  .bakery .bakery-carousel-controls .carousel-toggle { width: 26px; height: 26px; }
+  .bakery .menu-order-link { align-items: stretch; flex-direction: column; gap: 13px; text-align: center; }
+  .bakery .bakery-sweet-grid { gap: 9px; }
+  .bakery .quantity-select { width: 118px; }
+}
+
 .hero { min-height: 0; padding-block: 36px 56px; }
 .hero h1 { font-size: clamp(40px, 4.6vw, 58px); }
 .service-grid { grid-template-columns: repeat(3, 1fr); }

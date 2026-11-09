@@ -9,10 +9,11 @@ await Promise.all([
   mkdir(new URL("gestao/", output), { recursive: true }),
 ]);
 
-for (const file of ["index.html", "auth.html", "style.css", "script.js", "shop.js", "config.js", "CNAME"]) {
+for (const file of ["index.html", "encomenda.html", "auth.html", "style.css", "script.js", "shop.js", "config.js", "CNAME"]) {
   await cp(new URL(file, root), new URL(file, output));
 }
 await cp(new URL("assets/logos/", root), new URL("assets/logos/", output), { recursive: true });
 await cp(new URL("assets/courses/", root), new URL("assets/courses/", output), { recursive: true });
+await cp(new URL("assets/bakery/", root), new URL("assets/bakery/", output), { recursive: true });
 await cp(new URL("gestao/index.html", root), new URL("gestao/index.html", output));
 console.log("Site estático preparado em dist/.");

@@ -1,6 +1,6 @@
 # La Docura Confeitaria Gourmet
 
-Site de apresentação e encomendas de doces, bolos e docinhos artesanais para festas. A vitrine permite escolher itens e quantidades, informa uma estimativa, aplica o prazo mínimo configurável e prepara o pedido no WhatsApp **+55 11 95484-1299**. O painel privado fica em `/gestao/`.
+Site da La Docura Confeitaria Gourmet para apresentar docinhos artesanais e receber encomendas para festas. A página de pedidos permite escolher sabores e quantidades em múltiplos de 25, informa uma estimativa, aplica o prazo mínimo configurável e prepara o pedido no WhatsApp **+55 11 95484-1299**. O painel privado fica em `/gestao/`.
 
 ## Configuração
 
