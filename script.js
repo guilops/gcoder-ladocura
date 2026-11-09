@@ -138,12 +138,17 @@ function setupContactLinks() {
   }
 }
 
-function registerMonetagServiceWorker() {
-  if (!("serviceWorker" in navigator) || window.location.protocol !== "https:") return;
+function removeLegacyMonetagServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
 
-  navigator.serviceWorker.register("/sw.js", { scope: "/" })
-    .then(() => console.info("Service worker da Monetag registrado."))
-    .catch((error) => console.error("Não foi possível registrar o service worker da Monetag.", error));
+  navigator.serviceWorker.getRegistrations().then((registrations) => {
+    for (const registration of registrations) {
+      const scriptUrl = registration.active?.scriptURL || registration.waiting?.scriptURL || registration.installing?.scriptURL;
+      if (scriptUrl && new URL(scriptUrl).pathname === "/sw.js") {
+        void registration.unregister();
+      }
+    }
+  }).catch(() => {});
 }
 
 function setupCourseCheckout() {
@@ -919,7 +924,7 @@ document.querySelector("#save-durations-button")?.addEventListener("click", (eve
   void saveServiceDurations(event.currentTarget);
 });
 setupContactLinks();
-registerMonetagServiceWorker();
+removeLegacyMonetagServiceWorker();
 setupCourseCheckout();
 setupHeroCarousel();
 window.addEventListener("hashchange", routeToAdmin);
